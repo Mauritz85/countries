@@ -4,7 +4,7 @@ const NameH3 = document.createElement('h3')
 const subregionP = document.createElement('p')
 const capitalP = document.createElement('p')
 const populationP = document.createElement('p')
-const flagP = document.createElement('p')
+const flagImg = document.createElement('img')
 const errorH3 = document.createElement('h3')
 const searchResultsDiv = document.getElementById('search-result-div')
 const countryInfoDiv = document.createElement('div')
@@ -43,6 +43,9 @@ function showCountryInfo(country) {
         NameH3[i] = document.createElement('h3')
         NameH3[i].innerText = country[i].name.common
         countryInfoDiv[i].appendChild(NameH3[i])
+        flagImg[i] = document.createElement('img')
+        flagImg[i].src = country[i].flags.png
+        countryInfoDiv[i].appendChild(flagImg[i])
         subregionP[i] = document.createElement('p')
         subregionP[i].innerText = 'Subregion: ' + country[i].subregion
         countryInfoDiv[i].appendChild(subregionP[i])
@@ -52,9 +55,7 @@ function showCountryInfo(country) {
         populationP[i] = document.createElement('p')
         populationP[i].innerText = "Population: " + country[i].population
         countryInfoDiv[i].appendChild(populationP[i])
-        flagP[i] = document.createElement('p')
-        flagP[i].innerText = "Flag :" + country[i].flag
-        countryInfoDiv[i].appendChild(flagP[i])
+
         storePopulationsArray.push(country[i].population)
 
     }
